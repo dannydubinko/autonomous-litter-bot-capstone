@@ -3,7 +3,8 @@ Go1 Litter(Garabge) Collecting Autononomus Robot
 
 Install Dependencies 
 
-```sudo apt update
+```bash
+sudo apt update
 sudo apt install -y \
   ros-jazzy-rviz2 \
   ros-jazzy-slam-toolbox \
@@ -16,7 +17,7 @@ sudo apt install -y \
 
 Build the workspace locally 
 
-```
+```bash
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
 
@@ -34,20 +35,21 @@ rosdep install --from-paths src --ignore-src -r -y
 Navigate to `~/workspaces/ros2_ws/src/ros2_mpu6050/include/ros2_mpu6050/mpu6050.h` 
 
 Add
-```#include <array>
+```c++
+#include <array>
 #include <cstdint>
 ```
 
 Navigate to `src/mpu6050_node.cpp`
 
-```
+```c++
 #include <stdexcept> // For runtime_error
 ```
 
 Navigate to `~/workspaces/ros2_ws/src/ros2_mpu6050/CMakeLists.txt`
 
 add after line 6
-```
+```c++
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ```
@@ -55,22 +57,59 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 Navigate to `~/workspaces/ros2_ws/src/ros2_mpu6050/include/ros2_mpu6050/mpu6050.h`
 
 add 
-```
+```c++
 #include <array>
 ```
 
 
 # Install Realsense Library
 
+## 🔧 Building pyrealsense2 on Raspberry Pi 5 (Source Build)
+
+The standard `pip install pyrealsense2` does not work on the Raspberry Pi 5 (ARM64). You must build the library from source using the **RSUSB backend** to ensure compatibility.
+
+### Build Instructions
+
+Run the following commands to build and install the Python bindings:
+
+```bash
+# 1. Install dependencies
+sudo apt-get update && sudo apt-get install -y \
+    git libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev \
+    cmake build-essential python3-dev python3-setuptools
+
+# 2. Clone the repository
+cd ~
+git clone [https://github.com/IntelRealSense/librealsense.git](https://github.com/IntelRealSense/librealsense.git)
+cd librealsense
+
+# 3. Apply udev rules (Required for USB access)
+sudo ./scripts/setup_udev_rules.sh
+
+# 4. Create build directory
+mkdir build && cd build
+
+# 5. Configure CMake (Force RSUSB backend for Pi 5 stability)
+cmake ../ -DBUILD_PYTHON_BINDINGS:bool=true \
+    -DPYTHON_EXECUTABLE=$(which python3) \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DFORCE_RSUSB_BACKEND=true \
+    -DBUILD_EXAMPLES=false \
+    -DBUILD_GRAPHICAL_EXAMPLES=false
+
+# 6. Compile and Install (Takes ~15-20 mins)
+make -j4
+sudo make install
+
 # Install CV Dependencies
 
-```
+```bash
 cd ~/ros2_ws
 # We do NOT use --system-site-packages this time
 python3 -m venv venv 
 source venv/bin/activate
 ```
-```
+```bash
 # Upgrade pip first to avoid issues with older wheel formats
 pip install --upgrade pip
 
@@ -87,11 +126,11 @@ pip install pyrealsense2
 # Build
 Navigate back to your ros2 workspace
 
-```
+```bash
 cd ~/capstone-group8/ros2_ws
 ```
 
-```
+```bash
 colcon build --symlink-install
 source install/setup.bash
 ```
@@ -109,14 +148,14 @@ i2cdetect -y 1
 ## Run LiDAR
 
 ### Set Up LiDAR (run once )
-```
+```bash
 sudo usermod -aG dialout $USER
 ls /dev/ttyUSB*
 sudo chmod 666 /dev/ttyUSB0
 ```
 ### Test LiDAR Node
 
-```
+```bash
 ros2 launch sllidar_ros2 sllidar_c1_launch.py async_mode:=True
 ```
 
