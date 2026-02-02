@@ -9,7 +9,8 @@ sudo apt install -y \
   ros-jazzy-slam-toolbox \
   ros-jazzy-robot-localization \
   ros-jazzy-nav2-rviz-plugins \
-  python3-colcon-common-extensions
+  python3-colcon-common-extensions \
+  libi2c-dev
 ``` 
 
 Build the workspace locally 
@@ -29,7 +30,7 @@ rosdep install --from-paths src --ignore-src -r -y
 ```
 
 # Fix libray for jazzy
-Navigate to `~/workspaces/capstone_ws/src/ros2_mpu6050/include/ros2_mpu6050/mpu6050.h` 
+Navigate to `~/workspaces/ros2_ws/src/ros2_mpu6050/include/ros2_mpu6050/mpu6050.h` 
 
 Add
 ```#include <array>
@@ -40,19 +41,31 @@ Navigate to `src/mpu6050_node.cpp`
 
 ```
 #include <stdexcept> // For runtime_error
-#include <memory>    // For unique_ptr/shared_ptr
 ```
 
-Navigate to `~/workspaces/capstone_ws/src/ros2_mpu6050/CMakeLists.txtv`
+Navigate to `~/workspaces/ros2_ws/src/ros2_mpu6050/CMakeLists.txt`
 
-add
+add after line 6
 ```
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 ```
 
+Navigate to `~/workspaces/ros2_ws/src/ros2_mpu6050/include/ros2_mpu6050/mpu6050.h`
+
+add 
+```
+#include <array>
+```
+
 
 # Build
+Navigate back to your ros2 workspace
+
+```
+cd ~/capstone-group8/ros2_ws
+```
+
 ```
 colcon build --symlink-install
 source install/setup.bash
