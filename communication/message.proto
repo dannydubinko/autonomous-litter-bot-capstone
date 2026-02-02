@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+message LitterPoint {
+    float x = 1;
+    float y = 2;
+    float depth = 3;
+    float angle = 4;
+    float width = 5;
+    float height = 6;
+}
