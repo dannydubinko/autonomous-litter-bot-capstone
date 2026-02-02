@@ -10,7 +10,8 @@ sudo apt install -y \
   ros-jazzy-robot-localization \
   ros-jazzy-nav2-rviz-plugins \
   python3-colcon-common-extensions \
-  libi2c-dev
+  libi2c-dev \
+  i2c-tools
 ``` 
 
 Build the workspace locally 
