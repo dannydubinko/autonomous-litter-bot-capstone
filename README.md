@@ -153,10 +153,60 @@ sudo usermod -aG dialout $USER
 ls /dev/ttyUSB*
 sudo chmod 666 /dev/ttyUSB0
 ```
+
+### Create TF Tree
+```bash
+ros2 run tf2_ros static_transform_publisher --frame-id base_link --child-frame-id laser & ros2 run tf2_ros static_transform_publisher --frame-id odom --child-frame-id base_link
+```
+
+inside where the yaml file is held
+
+```bash
+ros2 run slam_toolbox async_slam_toolbox_node --ros-args --params-file mapper_params_online_async.yaml
+```
 ### Test LiDAR Node
 
 ```bash
 ros2 launch sllidar_ros2 sllidar_c1_launch.py async_mode:=True
+```
+
+```bash
+ros2 run tf2_ros static_transform_publisher --frame-id base_link --child-frame-id imu_link
+```
+
+```bash
+ros2 run rf2o_laser_odometry rf2o_laser_odometry_node --ros-args \
+  -p laser_scan_topic:=/scan \
+  -p odom_topic:=/odom \
+  -p publish_tf:=true \
+  -p base_frame_id:=base_link \
+  -p odom_frame_id:=odom \
+  -p init_pose_from_topic:=""
+```
+
+### Launch RViz
+```bash
+ros2 run rviz2 rviz2
+```
+
+
+
+## Run IMU
+### Calibrate IMU 
+```bash
+ros2 run ros2_mpu6050 ros2_mpu6050_calibrate
+```
+Copy values into `ros2_mpu6050/config/params.yaml`
+
+DO NOT COPY the `accel_z_offset'
+
+```bash
+colcon build --symlink-install
+source install/setup.bash
+```
+
+```bash
+ros2 launch autonomous_litter_bot_capstone imu_system.launch.py
 ```
 
 ## Run Realsense and YOLO Model
