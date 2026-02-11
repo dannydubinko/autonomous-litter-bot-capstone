@@ -1,0 +1,11 @@
+# Ignore Python cache
+**/__pycache__/
+*.pyc
+
+# Ignore local IDE settings
+.vscode/
+.idea/
+
+# Ignore colcon/cmake artifacts that might sneak in
+**/cmake-build-debug/
+**/cmake-build-release/
