@@ -4,12 +4,17 @@ Go1 Litter(Garabge) Collecting Autononomus Robot
 [IMPORTANT]
 My Package is `autonomous_litter_bot_package`
 
-Package `ros2_mpu6050` and `sllidar_ros2` are not mine. I am updating the code to function with my system and with ROS2 Jazzy.
+Package `ros2_mpu6050` and `sllidar_ros2` and `rf2o_laser` are not mine. 
+
+I am updating the code to function with my system and with ROS2 Jazzy.
 
 Please go support them at their individual repos :) <br />
 
 https://github.com/Slamtec/sllidar_ros2.git
 https://github.com/kimsniper/ros2_mpu6050.git
+https://github.com/MAPIRlab/rf2o_laser_odometry.git
+
+[IMPORTANT]
 
 # Begin Here
 
