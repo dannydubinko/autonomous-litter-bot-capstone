@@ -2,7 +2,7 @@
 Go1 Litter(Garabge) Collecting Autononomus Robot
 
 [IMPORTANT]
-My Package is `autonomous_litter_bot_package
+My Package is `autonomous_litter_bot_package`
 
 Package `ros2_mpu6050` and `sllidar_ros2` are not mine. I am updating the code to function with my system and with ROS2 Jazzy.
 
@@ -26,24 +26,16 @@ sudo apt install -y \
   libi2c-dev \
   i2c-tools
 ``` 
-
-
-
 Build the workspace locally 
 
 ```bash
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws/src
-
-
-
 cd ~/ros2_ws
 # This will check if your laptop has all the small background libraries needed
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
-# Fix libray for jazzy
+# Fix libray for jazzy (remove)
 Navigate to `~/workspaces/ros2_ws/src/ros2_mpu6050/include/ros2_mpu6050/mpu6050.h` 
 
 Add
@@ -239,8 +231,15 @@ After click the drop down in the top left and clip /debug_image as the topic and
 
 # Step By Step Launch Intructions Manual (Daniel)
 
-## Launch imu 
-### IMU Pin Out for Pi5
+## Installs
+```bash
+sudo apt update
+sudo apt install ros-jazzy-robot-localization
+```
+
+
+
+## IMU Pin Out for Pi5
 
 | 3.3V | 5V  |<br />
 | SDA  | 5V  |<br />
@@ -248,7 +247,7 @@ After click the drop down in the top left and clip /debug_image as the topic and
 
 VCC -> 3V
 
-### Launch Instructions
+## Launch Instructions
 
 ```bash
 rosdep install -i --from-path src --rosdistro jazzy -y
@@ -256,12 +255,12 @@ colcon build --symlink-install --packages-select autonomous_litter_bot_package
 source install/setup.bash
 ```
 
-#### Launch RVIZ and URDF
+### Launch RVIZ and URDF
 ```bash
 ros2 launch autonomous_litter_bot_package display.launch.py
 ```
 
-#### Launch IMU data
+### Launch IMU data
 ```bash
 ros2 launch autonomous_litter_bot_package imu_system.launch.py
 ```
@@ -270,3 +269,8 @@ https://docs.ros.org/en/noetic/api/robot_localization/html/preparing_sensor_data
 https://docs.ros.org/en/jazzy/p/slam_toolbox/
 
 https://docs.ros.org/en/jazzy/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher-py.html
+
+### Launch Lidar and SLAM
+```bash
+ros2 launch sllidar_ros2 sllidar_c1_launch.py async_mode:=True
+```
