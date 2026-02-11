@@ -260,7 +260,7 @@ source install/setup.bash
 ros2 launch autonomous_litter_bot_package ekf.launch.py
 ```
 
-#### Launch The Whole Package
+#### Launch The Whole Package without EKF
 - URDF
 - Robot State Publisher
 - RF20
@@ -272,23 +272,19 @@ ros2 launch autonomous_litter_bot_package ekf.launch.py
 ros2 launch autonomous_litter_bot_package mapping.launch.py
 ```
 
-<!-- ### Launch RVIZ and URDF
-```bash
-ros2 launch autonomous_litter_bot_package display.launch.py
-``` -->
-
 ### Launch IMU data
 ```bash
 ros2 launch autonomous_litter_bot_package imu_system.launch.py
 ```
-<!-- https://docs.ros.org/en/noetic/api/robot_localization/html/preparing_sensor_data.html
 
-https://docs.ros.org/en/jazzy/p/slam_toolbox/
+#### Launch The Whole Package with EKF
+- URDF
+- Robot State Publisher
+- RF20
+- Lidar Driver
+- Slam
+- Rviz2
 
-https://docs.ros.org/en/jazzy/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher-py.html -->
-
-<!-- ### Launch Lidar and SLAM
 ```bash
-ros2 launch sllidar_ros2 sllidar_c1_launch.py async_mode:=True
+ros2 launch autonomous_litter_bot_package mapping_w_ekf.launch.py
 ```
- -->
