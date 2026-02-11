@@ -1,6 +1,18 @@
 # autonomous-litter-bot-capstone
 Go1 Litter(Garabge) Collecting Autononomus Robot
 
+[IMPORTANT]
+My Package is `autonomous_litter_bot_package
+
+Package `ros2_mpu6050` and `sllidar_ros2` are not mine. I am updating the code to function with my system and with ROS2 Jazzy.
+
+Please go support them at their individual repos :) <br />
+
+https://github.com/Slamtec/sllidar_ros2.git
+https://github.com/kimsniper/ros2_mpu6050.git
+
+# Begin Here
+
 Install Dependencies 
 
 ```bash
@@ -15,15 +27,15 @@ sudo apt install -y \
   i2c-tools
 ``` 
 
+
+
 Build the workspace locally 
 
 ```bash
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
 
-# Clone the same drivers
-git clone https://github.com/Slamtec/sllidar_ros2.git
-git clone https://github.com/kimsniper/ros2_mpu6050.git
+
 
 cd ~/ros2_ws
 # This will check if your laptop has all the small background libraries needed
