@@ -10,9 +10,9 @@ I am updating the code to function with my system and with ROS2 Jazzy.
 
 Please go support them at their individual repos :) <br />
 
-https://github.com/Slamtec/sllidar_ros2.git
-https://github.com/kimsniper/ros2_mpu6050.git
-https://github.com/MAPIRlab/rf2o_laser_odometry.git
+https://github.com/Slamtec/sllidar_ros2.git<br />
+https://github.com/kimsniper/ros2_mpu6050.git<br />
+https://github.com/MAPIRlab/rf2o_laser_odometry.git<br />
 
 [IMPORTANT]
 
