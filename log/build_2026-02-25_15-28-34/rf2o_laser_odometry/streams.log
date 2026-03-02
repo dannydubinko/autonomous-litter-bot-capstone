@@ -1,0 +1,30 @@
+[0.458s] Invoking command in '/home/pi5/capstone-group8/ros2_ws/src/build/rf2o_laser_odometry': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pi5/capstone-group8/ros2_ws/src/build/rf2o_laser_odometry -- -j4 -l4
+[0.959s] [ 20%] [32mBuilding CXX object CMakeFiles/rf2o_laser_odometry_node.dir/src/CLaserOdometry2DNode.cpp.o[0m
+[0.965s] [ 40%] [32mBuilding CXX object CMakeFiles/rf2o_laser_odometry_node.dir/src/CLaserOdometry2D.cpp.o[0m
+[0.965s] [ 60%] [32mBuilding CXX object CMakeFiles/rf2o_laser_odometry.dir/src/CLaserOdometry2D.cpp.o[0m
+[72.204s] [ 80%] [32m[1mLinking CXX executable rf2o_laser_odometry_node[0m
+[76.469s] [100%] [32m[1mLinking CXX static library librf2o_laser_odometry.a[0m
+[77.526s] [100%] Built target rf2o_laser_odometry_node
+[78.994s] [100%] Built target rf2o_laser_odometry
+[79.209s] Invoked command in '/home/pi5/capstone-group8/ros2_ws/src/build/rf2o_laser_odometry' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pi5/capstone-group8/ros2_ws/src/build/rf2o_laser_odometry -- -j4 -l4
+[79.218s] Invoking command in '/home/pi5/capstone-group8/ros2_ws/src/build/rf2o_laser_odometry': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pi5/capstone-group8/ros2_ws/src/build/rf2o_laser_odometry
+[79.233s] -- Install configuration: ""
+[79.234s] -- Execute custom install script
+[79.235s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/lib/rf2o_laser_odometry/rf2o_laser_odometry_node
+[79.259s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/rf2o_laser_odometry/launch/rf2o_laser_odometry.launch.py
+[79.287s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/ament_index/resource_index/package_run_dependencies/rf2o_laser_odometry
+[79.305s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/ament_index/resource_index/parent_prefix_path/rf2o_laser_odometry
+[79.323s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/rf2o_laser_odometry/environment/ament_prefix_path.sh
+[79.348s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/rf2o_laser_odometry/environment/ament_prefix_path.dsv
+[79.372s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/rf2o_laser_odometry/environment/path.sh
+[79.391s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/rf2o_laser_odometry/environment/path.dsv
+[79.410s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/rf2o_laser_odometry/local_setup.bash
+[79.426s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/rf2o_laser_odometry/local_setup.sh
+[79.451s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/rf2o_laser_odometry/local_setup.zsh
+[79.470s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/rf2o_laser_odometry/local_setup.dsv
+[79.491s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/rf2o_laser_odometry/package.dsv
+[79.509s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/ament_index/resource_index/packages/rf2o_laser_odometry
+[79.526s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/rf2o_laser_odometry/cmake/rf2o_laser_odometryConfig.cmake
+[79.549s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/rf2o_laser_odometry/cmake/rf2o_laser_odometryConfig-version.cmake
+[79.572s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/rf2o_laser_odometry/share/rf2o_laser_odometry/package.xml
+[79.594s] Invoked command in '/home/pi5/capstone-group8/ros2_ws/src/build/rf2o_laser_odometry' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pi5/capstone-group8/ros2_ws/src/build/rf2o_laser_odometry

@@ -1,0 +1,17 @@
+running develop
+running egg_info
+writing autonomous_litter_bot_package.egg-info/PKG-INFO
+writing dependency_links to autonomous_litter_bot_package.egg-info/dependency_links.txt
+writing entry points to autonomous_litter_bot_package.egg-info/entry_points.txt
+writing requirements to autonomous_litter_bot_package.egg-info/requires.txt
+writing top-level names to autonomous_litter_bot_package.egg-info/top_level.txt
+reading manifest file 'autonomous_litter_bot_package.egg-info/SOURCES.txt'
+writing manifest file 'autonomous_litter_bot_package.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/lib/python3.12/site-packages/autonomous-litter-bot-package.egg-link (link to .)
+Installing orange_detection_node script to /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/lib/autonomous_litter_bot_package
+Installing proto_sender_node script to /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/lib/autonomous_litter_bot_package
+Installing trash_detection_node script to /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/lib/autonomous_litter_bot_package
+
+Installed /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package
+running symlink_data

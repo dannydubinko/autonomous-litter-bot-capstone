@@ -45,6 +45,7 @@ setup(
             # executable_name = package_folder.python_filename:function_name
             'trash_detection_node = autonomous_litter_bot_package.trash_detection_node:main',
             'proto_sender_node = autonomous_litter_bot_package.proto_sender_node:main',
+            'orange_detection_node = autonomous_litter_bot_package.orange_detection_node:main',
         ],
     },
 )

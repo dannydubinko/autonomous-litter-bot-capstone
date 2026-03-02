@@ -1,0 +1,45 @@
+running develop
+running egg_info
+creating autonomous_litter_bot_package.egg-info
+writing autonomous_litter_bot_package.egg-info/PKG-INFO
+writing dependency_links to autonomous_litter_bot_package.egg-info/dependency_links.txt
+writing entry points to autonomous_litter_bot_package.egg-info/entry_points.txt
+writing requirements to autonomous_litter_bot_package.egg-info/requires.txt
+writing top-level names to autonomous_litter_bot_package.egg-info/top_level.txt
+writing manifest file 'autonomous_litter_bot_package.egg-info/SOURCES.txt'
+reading manifest file 'autonomous_litter_bot_package.egg-info/SOURCES.txt'
+writing manifest file 'autonomous_litter_bot_package.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/lib/python3.12/site-packages/autonomous-litter-bot-package.egg-link (link to .)
+Installing orange_detection_node script to /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/lib/autonomous_litter_bot_package
+Installing proto_sender_node script to /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/lib/autonomous_litter_bot_package
+Installing trash_detection_node script to /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/lib/autonomous_litter_bot_package
+
+Installed /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package
+running symlink_data
+creating /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/ament_index
+creating /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/ament_index/resource_index
+creating /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/ament_index/resource_index/packages
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/resource/autonomous_litter_bot_package -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/ament_index/resource_index/packages
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/package.xml -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/autonomous_litter_bot_package/detection_pb2.py -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package
+creating /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/models
+creating /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/models/segmentation_small_openvino_model
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/autonomous_litter_bot_package/models/segmentation_small_openvino_model/segmentation_small.xml -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/models/segmentation_small_openvino_model
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/autonomous_litter_bot_package/models/segmentation_small_openvino_model/segmentation_small.bin -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/models/segmentation_small_openvino_model
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/autonomous_litter_bot_package/models/segmentation_small_openvino_model/metadata.yaml -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/models/segmentation_small_openvino_model
+creating /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/models/segmentation_nano_openvino_model
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/autonomous_litter_bot_package/models/segmentation_nano_openvino_model/segmentation_nano.bin -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/models/segmentation_nano_openvino_model
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/autonomous_litter_bot_package/models/segmentation_nano_openvino_model/metadata.yaml -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/models/segmentation_nano_openvino_model
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/autonomous_litter_bot_package/models/segmentation_nano_openvino_model/segmentation_nano.xml -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/models/segmentation_nano_openvino_model
+creating /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/config
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/config/slam_params.yaml -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/config
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/config/ekf.yaml -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/config
+creating /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/launch
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/launch/ekf.launch.py -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/launch
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/launch/imu_system.launch.py -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/launch
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/launch/mapping_w_ekf.launch.py -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/launch
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/launch/mapping.launch.py -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/launch
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/launch/trash_detection.launch.py -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/launch
+creating /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/urdf
+symbolically linking /home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/urdf/robot.urdf -> /home/pi5/capstone-group8/ros2_ws/src/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/urdf

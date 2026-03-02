@@ -1,0 +1,69 @@
+[0.449s] Invoking command in '/home/pi5/capstone-group8/ros2_ws/src/build/ros2_mpu6050': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/pi5/capstone-group8/ros2_ws/src/ros2_mpu6050 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050
+[1.260s] -- The C compiler identification is GNU 13.3.0
+[1.737s] -- The CXX compiler identification is GNU 13.3.0
+[1.842s] -- Detecting C compiler ABI info
+[2.245s] -- Detecting C compiler ABI info - done
+[2.283s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.284s] -- Detecting C compile features
+[2.289s] -- Detecting C compile features - done
+[2.334s] -- Detecting CXX compiler ABI info
+[2.865s] -- Detecting CXX compiler ABI info - done
+[2.894s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.896s] -- Detecting CXX compile features
+[2.896s] -- Detecting CXX compile features - done
+[2.901s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[3.520s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[3.817s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[4.097s] -- Found rclcpp: 28.1.16 (/opt/ros/jazzy/share/rclcpp/cmake)
+[4.347s] -- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[4.439s] -- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[4.525s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.632s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.164s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[5.209s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[5.892s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[6.119s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[6.303s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[6.715s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[7.751s] -- Configuring done (7.1s)
+[7.821s] -- Generating done (0.0s)
+[7.838s] -- Build files have been written to: /home/pi5/capstone-group8/ros2_ws/src/build/ros2_mpu6050
+[7.875s] Invoked command in '/home/pi5/capstone-group8/ros2_ws/src/build/ros2_mpu6050' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/pi5/capstone-group8/ros2_ws/src/ros2_mpu6050 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050
+[7.878s] Invoking command in '/home/pi5/capstone-group8/ros2_ws/src/build/ros2_mpu6050': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pi5/capstone-group8/ros2_ws/src/build/ros2_mpu6050 -- -j4 -l4
+[8.113s] [ 25%] [32mBuilding CXX object CMakeFiles/ros2_mpu6050_calibrate.dir/src/mpu6050_calibrate.cpp.o[0m
+[8.115s] [ 25%] [32mBuilding CXX object CMakeFiles/ros2_mpu6050_calibrate.dir/src/mpu6050_hal.cpp.o[0m
+[8.115s] [ 37%] [32mBuilding CXX object CMakeFiles/ros2_mpu6050_calibrate.dir/src/mpu6050.cpp.o[0m
+[8.145s] [ 50%] [32mBuilding CXX object CMakeFiles/ros2_mpu6050.dir/src/mpu6050.cpp.o[0m
+[10.560s] [ 62%] [32mBuilding CXX object CMakeFiles/ros2_mpu6050.dir/src/mpu6050_hal.cpp.o[0m
+[10.629s] [ 75%] [32mBuilding CXX object CMakeFiles/ros2_mpu6050.dir/src/mpu6050_node.cpp.o[0m
+[11.950s] [ 87%] [32m[1mLinking CXX executable ros2_mpu6050_calibrate[0m
+[12.653s] [ 87%] Built target ros2_mpu6050_calibrate
+[36.056s] [100%] [32m[1mLinking CXX executable ros2_mpu6050[0m
+[38.358s] [100%] Built target ros2_mpu6050
+[38.452s] Invoked command in '/home/pi5/capstone-group8/ros2_ws/src/build/ros2_mpu6050' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pi5/capstone-group8/ros2_ws/src/build/ros2_mpu6050 -- -j4 -l4
+[38.508s] Invoking command in '/home/pi5/capstone-group8/ros2_ws/src/build/ros2_mpu6050': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pi5/capstone-group8/ros2_ws/src/build/ros2_mpu6050
+[38.551s] -- Install configuration: ""
+[38.557s] -- Execute custom install script
+[38.560s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/include/include/ros2_mpu6050/mpu6050.h
+[38.631s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/include/include/ros2_mpu6050/mpu6050_hal.h
+[38.679s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/include/include/ros2_mpu6050/mpu6050_node.h
+[38.777s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/lib/ros2_mpu6050/ros2_mpu6050
+[38.859s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/lib/ros2_mpu6050/ros2_mpu6050_calibrate
+[38.909s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/config/params.yaml
+[38.980s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/launch/ros2_mpu6050.launch.py
+[39.059s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ament_index/resource_index/package_run_dependencies/ros2_mpu6050
+[39.111s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ament_index/resource_index/parent_prefix_path/ros2_mpu6050
+[39.159s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/environment/ament_prefix_path.sh
+[39.214s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/environment/ament_prefix_path.dsv
+[39.249s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/environment/path.sh
+[39.296s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/environment/path.dsv
+[39.350s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/local_setup.bash
+[39.397s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/local_setup.sh
+[39.457s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/local_setup.zsh
+[39.509s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/local_setup.dsv
+[39.575s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/package.dsv
+[39.638s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ament_index/resource_index/packages/ros2_mpu6050
+[39.664s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/cmake/ros2_mpu6050Config.cmake
+[39.685s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/cmake/ros2_mpu6050Config-version.cmake
+[39.713s] -- Symlinking: /home/pi5/capstone-group8/ros2_ws/src/install/ros2_mpu6050/share/ros2_mpu6050/package.xml
+[39.761s] Invoked command in '/home/pi5/capstone-group8/ros2_ws/src/build/ros2_mpu6050' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pi5/capstone-group8/ros2_ws/src/build/ros2_mpu6050

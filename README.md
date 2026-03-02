@@ -1,7 +1,7 @@
 # autonomous-litter-bot-capstone
 Go1 Litter(Garabge) Collecting Autononomus Robot
 
-[IMPORTANT]
+[IMPORTANT]<br />
 My Package is `autonomous_litter_bot_package`
 
 Package `ros2_mpu6050` and `sllidar_ros2` and `rf2o_laser` are not mine. 
@@ -292,4 +292,21 @@ ros2 launch autonomous_litter_bot_package imu_system.launch.py
 
 ```bash
 ros2 launch autonomous_litter_bot_package mapping_w_ekf.launch.py
+```
+#### Nav2 
+Launch Nav2 
+
+```bash
+ros2 launch nav2_bringup navigation_launch.py use_sim_time:=false
+```
+Save Map
+
+```bash
+ros2 run nav2_map_server map_saver_cli -f ~/test_map
+```
+
+Use Saved Map
+
+```bash
+ros2 launch nav2_bringup bringup_launch.py map:=~/test_map.yaml use_sim_time:=false
 ```
