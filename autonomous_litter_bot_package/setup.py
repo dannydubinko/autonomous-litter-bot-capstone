@@ -49,7 +49,10 @@ setup(
             'proto_sender_node = autonomous_litter_bot_package.proto_sender_node:main',
             'orange_detection_node = autonomous_litter_bot_package.orange_detection_node:main',
             'lidar_filter_node = autonomous_litter_bot_package.lidar_filter:main',
-            'twist_to_high_cmd = autonomous_litter_bot_package.twist_to_high_cmd:main'
+            'twist_to_high_cmd = autonomous_litter_bot_package.twist_to_high_cmd:main',
+            'sit_stand = autonomous_litter_bot_package.sit_stand:main',
+            'robot_brain = autonomous_litter_bot_package.robot_brain:main',
+            'udp_nav2_commander = autonomous_litter_bot_package.udp_nav2_commander:main'
         ],
     },
 )
