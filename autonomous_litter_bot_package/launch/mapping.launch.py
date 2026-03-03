@@ -11,10 +11,6 @@ from launch.actions import TimerAction
 def generate_launch_description():
     pkg_name = 'autonomous_litter_bot_package'
 
-        # 1. Locate the existing launch file from the library
-    mpu6050_pkg_share = get_package_share_directory('ros2_mpu6050')
-    included_mpu_launch = os.path.join(mpu6050_pkg_share, 'launch', 'ros2_mpu6050.launch.py')
-
     # 1. Get the Path to your URDF
     urdf_file_name = 'robot.urdf' # OR 'go1.urdf.xacro' if you use xacro
     urdf_path = os.path.join(

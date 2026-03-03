@@ -10,7 +10,7 @@ class TwistToHighCmd(Node):
         # Subscribes to standard Nav2/Teleop output
         self.subscription = self.create_subscription(
             Twist,
-            '/cmd_vel',
+            '/cmd_vel_nav',
             self.twist_callback,
             10)
             

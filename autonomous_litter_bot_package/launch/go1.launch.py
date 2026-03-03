@@ -10,11 +10,6 @@ from launch.actions import TimerAction
 
 def generate_launch_description():
     pkg_name = 'autonomous_litter_bot_package'
-
-        # 1. Locate the existing launch file from the library
-    mpu6050_pkg_share = get_package_share_directory('ros2_mpu6050')
-    included_mpu_launch = os.path.join(mpu6050_pkg_share, 'launch', 'ros2_mpu6050.launch.py')
-
     # 1. Get the Path to your URDF
     urdf_file_name = 'robot.urdf' # OR 'go1.urdf.xacro' if you use xacro
     urdf_path = os.path.join(
@@ -44,6 +39,7 @@ def generate_launch_description():
         package='rf2o_laser_odometry',
         executable='rf2o_laser_odometry_node',
         name='rf2o_laser_odometry',
+        output='screen',
         parameters=[{
             'laser_scan_topic': '/scan',
             'odom_topic': '/odom_rf2o',
@@ -111,56 +107,6 @@ def generate_launch_description():
                 ('/imu/data_raw', '/imu/mpu6050')
             ]
         )
-    
-    nav2 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory('nav2_bringup'), 
-                        'launch', 'navigation_launch.py')
-        ),
-        launch_arguments={
-            'params_file': os.path.join(
-                get_package_share_directory(pkg_name), 
-                'config', 'nav2_param.yaml'),
-            'use_sim_time': 'false',
-            'use_docking_server': 'False',  # <--- ADD THIS LINE
-            'use_composition': 'False'      # Also good to keep false for debugging on Pi 5
-        }.items()
-    )
-
-    map_server = Node(
-            package='nav2_map_server',
-            executable='map_server',
-            name='map_server',
-            output='screen',
-            parameters=[{
-                'yaml_filename': os.path.join(
-                    get_package_share_directory(pkg_name), 
-                    'maps', 'my_office_map.yaml'),  # path to your saved map
-                'use_sim_time': False
-            }]
-        )
-
-
-    lifecycle_manager_navigation = Node(
-        package='nav2_lifecycle_manager',
-        executable='lifecycle_manager',
-        name='lifecycle_manager_navigation',
-        output='screen',
-        parameters=[{
-            'use_sim_time': False,
-            'autostart': True,
-            # Use a COLON (:) here, not an EQUALS (=) sign
-            'node_names': [
-                'map_server', 
-                'amcl',
-                'planner_server', 
-                'controller_server', 
-                'behavior_server', 
-                'bt_navigator', 
-                'waypoint_follower'
-            ]
-        }]
-    )
 
 
     return LaunchDescription([
@@ -171,8 +117,5 @@ def generate_launch_description():
         imu_6050,
         imu_madwick,
         lidar_filter,
-        map_server,
-        lifecycle_manager_navigation,
-        nav2
     ])
 
