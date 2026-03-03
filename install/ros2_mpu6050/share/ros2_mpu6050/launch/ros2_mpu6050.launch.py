@@ -1,1 +1,0 @@
-/home/pi5/capstone-group8/ros2_ws/src/ros2_mpu6050/launch/ros2_mpu6050.launch.py

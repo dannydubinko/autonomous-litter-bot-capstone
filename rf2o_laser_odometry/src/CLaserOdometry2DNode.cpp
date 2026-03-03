@@ -176,7 +176,7 @@ void CLaserOdometry2DNode::process()
   else
   {
     // This is a warning. We depend on laser scans, so no meaning running faster than scan freq.
-    RCLCPP_WARN(get_logger(), "Waiting for laser_scans....");
+    //RCLCPP_WARN(get_logger(), "Waiting for laser_scans....");
   }
 }
 
@@ -204,7 +204,7 @@ void CLaserOdometry2DNode::initPoseCallBack(const nav_msgs::msg::Odometry::Share
 void CLaserOdometry2DNode::publish()
 {
   // 1. publish odom as a topic (no harm!)
-  RCLCPP_DEBUG(get_logger(), "Publishing odom over topic:[%s]", odom_topic.c_str());
+  //RCLCPP_DEBUG(get_logger(), "Publishing odom over topic:[%s]", odom_topic.c_str());
   tf2::Quaternion tf_quaternion;
   tf_quaternion.setRPY(0.0, 0.0, rf2o::getYaw(rf2o_ref.robot_pose_.rotation()));
   geometry_msgs::msg::Quaternion quaternion = tf2::toMsg(tf_quaternion);
@@ -229,7 +229,7 @@ void CLaserOdometry2DNode::publish()
   // 2. publish over tf? (one one node should publish this transform!)
   if (publish_tf)
   {
-    RCLCPP_DEBUG(get_logger(), "Publishing TF: [base_link] to [odom]");
+    //RCLCPP_DEBUG(get_logger(), "Publishing TF: [base_link] to [odom]");
     geometry_msgs::msg::TransformStamped odom_trans;
     odom_trans.header.stamp = rf2o_ref.last_odom_time;    // the time of the last scan used!
     odom_trans.header.frame_id = odom_frame_id;

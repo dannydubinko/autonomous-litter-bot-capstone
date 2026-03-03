@@ -291,7 +291,7 @@ ros2 launch nav2_bringup bringup_launch.py map:=~/test_map.yaml use_sim_time:=fa
 # Final Instructions
 ```bash
 rosdep install -i --from-path src --rosdistro jazzy -y
-colcon build --symlink-install
+colcon build --symlink-install --packages-select autonomous_litter_bot_package rf2o_laser_odometry ros2_mpu6050 ros2_unitree_legged_msgs sllidar_ros2 unitree_ros2_to_real
 source install/setup.bash
 ```
 
@@ -326,10 +326,6 @@ ros2 launch autonomous_litter_bot_package mapping_w_ekf.launch.py
 source ~/capstone-group8/ros2_ws/install/setup.bash
 ros2 launch autonomous_litter_bot_package nav2_launch.launch.py
 ```
-```bash
-source ~/capstone-group8/ros2_ws/install/setup.bash
-ros2 launch autonomous_litter_bot_package nav2_simple.launch.py
-```
 
 ## Launch Unitree UDP Bridge 
 ```bash
@@ -348,15 +344,5 @@ ros2 run autonomous_litter_bot_package twist_to_high_cmd
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```  -->
-
-```bash
-ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=/home/daniel/ros2_ws/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/maps/my_office_map.yaml -p use_sim_time:=false
-
-ros2 lifecycle set /map_server configure
-ros2 lifecycle set /map_server activate
-
-ros2 run rviz2 rviz2
-
-```
 
 

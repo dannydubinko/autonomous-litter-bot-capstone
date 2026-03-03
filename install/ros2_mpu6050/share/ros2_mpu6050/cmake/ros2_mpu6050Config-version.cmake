@@ -1,1 +1,0 @@
-/home/pi5/capstone-group8/ros2_ws/src/build/ros2_mpu6050/ament_cmake_core/ros2_mpu6050Config-version.cmake

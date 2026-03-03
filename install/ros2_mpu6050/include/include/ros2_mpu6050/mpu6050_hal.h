@@ -1,1 +1,0 @@
-/home/pi5/capstone-group8/ros2_ws/src/ros2_mpu6050/include/ros2_mpu6050/mpu6050_hal.h

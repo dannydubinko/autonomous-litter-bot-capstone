@@ -1,1 +1,0 @@
-/home/pi5/capstone-group8/ros2_ws/src/build/autonomous_litter_bot_package/launch/trash_detection.launch.py

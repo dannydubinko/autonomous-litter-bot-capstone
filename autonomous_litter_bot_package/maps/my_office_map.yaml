@@ -1,4 +1,4 @@
-image: my_office_map.pgm
+image: /home/pi5/capstone-group8/ros2_ws/src/autonomous_litter_bot_package/maps/my_office_map.pgm
 mode: trinary
 resolution: 0.050
 origin: [-13.678, -10.955, 0]

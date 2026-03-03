@@ -1,1 +1,0 @@
-/home/pi5/capstone-group8/ros2_ws/src/build/rf2o_laser_odometry/ament_cmake_environment_hooks/local_setup.bash

@@ -1,1 +1,0 @@
-autonomous_litter_bot_package
