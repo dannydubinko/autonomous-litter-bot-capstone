@@ -311,30 +311,39 @@ Bring Down the Slam Node
 
 
 ### Once Map is done:
+Optional:
 ```bash
 pkill -9 -f ros
 pkill -9 -f controller_server
 ```
 
+## Launch Lidar, IMU, and Robot State Publisher
 ```bash
-source ~/capstone-group8/ros2_ws/install/setup.bash
-ros2 launch autonomous_litter_bot_package mapping_w_ekf.launch.py
+source install/setup.bash
+ros2 launch autonomous_litter_bot_package go1.launch.py
 ```
 
-## Launch Nav2 with AMCL 
+## Launch Map bring up and AMCL localization
 ```bash
-source ~/capstone-group8/ros2_ws/install/setup.bash
-ros2 launch autonomous_litter_bot_package nav2_launch.launch.py
+source install/setup.bash
+ros2 launch autonomous_litter_bot_package localization.launch.py
+```
+Set a initial position on RVIZ for the AMCL node
+
+## Launch Map bring up and AMCL localization
+```bash
+source install/setup.bash
+ros2 launch autonomous_litter_bot_package navigation.launch.py
 ```
 
 ## Launch Unitree UDP Bridge 
 ```bash
-source ~/capstone-group8/ros2_ws/install/setup.bash
+source install/setup.bash
 ros2 run unitree_legged_real ros2_udp highlevel 
 ```
 
 ## Start Sending /high_cmd to Unitree Go1
-Run the /cmd_vel to /high_cmd convertor node 
+Run the /cmd_vel_nav to /high_cmd convertor node 
 ```bash
 source ~/capstone-group8/ros2_ws/install/setup.bash
 ros2 run autonomous_litter_bot_package twist_to_high_cmd 
