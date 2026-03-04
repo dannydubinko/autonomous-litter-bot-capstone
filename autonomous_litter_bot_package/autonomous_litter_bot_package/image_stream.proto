@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+message ImageFrame {
+    //Compresed image data
+    bytes colour_data = 1;
+    bytes depth_data = 2;
+
+    // Image metadata
+    int32 width = 3;
+    int32 height = 4;
+    double timestamp = 5;
+
+    // Camera Intrinsics (needed for 3D projection)
+    float fx = 6;
+    float fy = 7;
+    float ppx = 8;
+    float ppy = 9;
+
+    // Realsense depth scale (metres per unit)
+    float depth_scale = 10;
+}
