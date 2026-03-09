@@ -4,6 +4,9 @@ from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
+from launch.actions import TimerAction
+from launch.actions import GroupAction
+from launch_ros.actions import SetRemap
 
 def generate_launch_description():
     pkg_name = 'autonomous_litter_bot_package'
@@ -66,9 +69,31 @@ def generate_launch_description():
     lidar_driver = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory('sllidar_ros2'), 'launch', 'sllidar_c1_launch.py')
-        )
+        ),
+        launch_arguments={
+            'serial_port': '/dev/ttyUSB0',
+            'serial_baudrate': '460800',
+            'frame_id': 'laser',          # Match this to your URDF link name
+            'inverted': 'true',           # Fixes the upside-down orientation
+            'angle_compensate': 'true',
+            'scan_mode': 'Standard'
+        }.items()
     )
-    
+    lidar_remap = GroupAction(
+        actions=[SetRemap(src='/scan',dst='/scan_raw'),
+        lidar_driver
+        ]
+    )
+
+
+
+    lidar_filter = Node(
+        package='autonomous_litter_bot_package',
+        executable='lidar_filter_node',
+        name='lidar_filter',
+        output='screen',
+    ) 
+
     slam_toolbox = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')
@@ -77,6 +102,10 @@ def generate_launch_description():
             'params_file': os.path.join(get_package_share_directory(pkg_name), 'config', 'slam_params.yaml'),
             'use_sim_time': 'false'
         }.items()
+    )
+    delayed_slam = TimerAction(
+        period=3.0,
+        actions=[slam_toolbox]
     )
 
     imu_6050 = IncludeLaunchDescription(
@@ -110,10 +139,11 @@ def generate_launch_description():
     return LaunchDescription([
         rsp_node,       
         rf2o_node,      
-        lidar_driver,
-        slam_toolbox,
+        lidar_remap,
+        delayed_slam,
         rviz_node,
         ekf_node,
         imu_6050,
-        imu_madwick
+        imu_madwick,
+        lidar_filter
     ])

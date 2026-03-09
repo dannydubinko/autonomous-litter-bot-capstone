@@ -240,9 +240,8 @@ After click the drop down in the top left and clip /debug_image as the topic and
 ```bash
 sudo apt update
 sudo apt install ros-jazzy-robot-localization
+sudo apt install ros-jazzy-laser-filters
 ```
-
-
 
 ## IMU Pin Out for Pi5
 
@@ -256,16 +255,16 @@ VCC -> 3V
 
 ```bash
 rosdep install -i --from-path src --rosdistro jazzy -y
-colcon build --symlink-install --packages-select autonomous_litter_bot_package
+colcon build --symlink-install
 source install/setup.bash
 ```
 
-#### Launch EKF 
+#### Launch only EKF 
 ```bash
 ros2 launch autonomous_litter_bot_package ekf.launch.py
 ```
 
-#### Launch The Whole Package without EKF
+<!-- #### Launch The Whole Package without EKF
 - URDF
 - Robot State Publisher
 - RF20
@@ -275,9 +274,9 @@ ros2 launch autonomous_litter_bot_package ekf.launch.py
 
 ```bash
 ros2 launch autonomous_litter_bot_package mapping.launch.py
-```
+``` -->
 
-### Launch IMU data
+### Launch onyl IMU
 ```bash
 ros2 launch autonomous_litter_bot_package imu_system.launch.py
 ```
@@ -309,4 +308,41 @@ Use Saved Map
 
 ```bash
 ros2 launch nav2_bringup bringup_launch.py map:=~/test_map.yaml use_sim_time:=false
+```
+
+# Final Instructions
+```bash
+rosdep install -i --from-path src --rosdistro jazzy -y
+colcon build --symlink-install
+source install/setup.bash
+```
+
+sudo apt install liblcm-dev
+
+## Build Map 
+```bash
+ros2 launch autonomous_litter_bot_package mapping_w_ekf.launch.py
+```
+
+```bash
+ros2 launch autonomous_litter_bot_package slam.launch.py
+```
+### Once Map is done:
+```bash
+ros2 run nav2_map_server map_saver_cli -f ~/my_office_map
+```
+
+Bring Down the Slam Node 
+
+## Launch Nav2 with AMCL 
+```bash
+ros2 launch autonomous_litter_bot_package nav2_launch.launch.py
+```
+
+## Launch Unitree UDP Bridge 
+```bash
+source ~/ros2_ws/install/setup.bash
+ros2 run unitree_legged_real ros2_udp highlevel --ros-args \
+  -p target_ip:=192.168.12.188 \
+  -r /cmd_vel:=/high_cmd
 ```

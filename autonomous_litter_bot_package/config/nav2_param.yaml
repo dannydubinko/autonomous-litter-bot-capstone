@@ -1,0 +1,106 @@
+amcl:
+  ros__parameters:
+    use_sim_time: False
+    alpha1: 0.2
+    alpha2: 0.2
+    alpha3: 0.2
+    alpha4: 0.2
+    base_frame_id: "base_footprint"
+    odom_frame_id: "odom"
+    laser_frame_id: "laser" 
+    max_particles: 2000
+    min_particles: 500
+    robot_model_type: "nav2_amcl::DifferentialMotionModel"
+
+bt_navigator:
+  ros__parameters:
+    use_sim_time: False
+    global_frame: map
+    robot_base_frame: base_footprint
+    odom_frame: odom
+
+controller_server:
+  ros__parameters:
+    use_sim_time: False
+    controller_frequency: 20.0
+    min_x_velocity_threshold: 0.001
+    min_y_velocity_threshold: 0.001
+    min_theta_velocity_threshold: 0.001
+    controller_plugins: ["FollowPath"]
+
+    # --- Rotation Shim wrapping MPPI ---
+    FollowPath:
+      plugin: "nav2_rotation_shim_controller::RotationShimController"
+      primary_controller: "nav2_mppi_controller::MPPIController"
+      angular_dist_threshold: 0.785 # Rotate in place if error > 45 deg
+      forward_sampling_distance: 0.5
+      rotate_to_heading_angular_vel: 0.8
+      
+      # MPPI Settings - Optimized for Pi 5 Performance
+      time_steps: 45           
+      model_dt: 0.05
+      batch_size: 800          # Scaled for Pi 5 CPU overhead
+      vx_max: 0.4              # Safe walking speed
+      vx_min: -0.2
+      vy_max: 0.2              # Strafe speed
+      wz_max: 0.7              # Rotation speed
+      
+      motion_model: "Omni"     # Go1 is holonomic
+      critics: ["ConstraintCritical", "GoalCritical", "PathAlignCritical", "ObstacleCritical"]
+      
+      ObstacleCritical:
+        consider_footprint: True
+        collision_cost: 1000000.0
+        collision_margin_distance: 0.1
+
+planner_server:
+  ros__parameters:
+    use_sim_time: False
+    planner_plugins: ["GridBased"]
+    GridBased:
+      plugin: "nav2_navfn_planner/NavfnPlanner"
+      tolerance: 0.5
+      use_astar: True
+
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      update_frequency: 5.0
+      publish_frequency: 2.0
+      global_frame: odom
+      robot_base_frame: base_footprint
+      rolling_window: True
+      width: 3
+      height: 3
+      resolution: 0.05
+      # Go1 Rectangle Footprint (65cm x 30cm)
+      footprint: "[ [0.325, 0.15], [0.325, -0.15], [-0.325, -0.15], [-0.325, 0.15] ]"
+      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      inflation_layer:
+        cost_scaling_factor: 3.0
+        inflation_radius: 0.55
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      update_frequency: 1.0
+      publish_frequency: 1.0
+      global_frame: map
+      robot_base_frame: base_footprint
+      resolution: 0.05
+      footprint: "[ [0.325, 0.15], [0.325, -0.15], [-0.325, -0.15], [-0.325, 0.15] ]"
+      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+
+behavior_server:
+  ros__parameters:
+    use_sim_time: False
+    local_frame: odom
+    global_frame: map
+    robot_base_frame: base_footprint
+    behaviors: ["spin", "backup", "wait"]
+    spin:
+      plugin: "nav2_behaviors/Spin"
+    backup:
+      plugin: "nav2_behaviors/BackUp"
+    wait:
+      plugin: "nav2_behaviors/Wait"
