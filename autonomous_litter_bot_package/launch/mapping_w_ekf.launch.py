@@ -85,8 +85,6 @@ def generate_launch_description():
         ]
     )
 
-
-
     lidar_filter = Node(
         package='autonomous_litter_bot_package',
         executable='lidar_filter_node',
@@ -94,19 +92,19 @@ def generate_launch_description():
         output='screen',
     ) 
 
-    slam_toolbox = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')
-        ),
-        launch_arguments={
-            'params_file': os.path.join(get_package_share_directory(pkg_name), 'config', 'slam_params.yaml'),
-            'use_sim_time': 'false'
-        }.items()
-    )
-    delayed_slam = TimerAction(
-        period=3.0,
-        actions=[slam_toolbox]
-    )
+    # slam_toolbox = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         os.path.join(get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')
+    #     ),
+    #     launch_arguments={
+    #         'params_file': os.path.join(get_package_share_directory(pkg_name), 'config', 'slam_params.yaml'),
+    #         'use_sim_time': 'false'
+    #     }.items()
+    # )
+    # delayed_slam = TimerAction(
+    #     period=3.0,
+    #     actions=[slam_toolbox]
+    # )
 
     imu_6050 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -140,7 +138,6 @@ def generate_launch_description():
         rsp_node,       
         rf2o_node,      
         lidar_remap,
-        delayed_slam,
         rviz_node,
         ekf_node,
         imu_6050,

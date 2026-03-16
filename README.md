@@ -259,28 +259,6 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 
-#### Launch only EKF 
-```bash
-ros2 launch autonomous_litter_bot_package ekf.launch.py
-```
-
-<!-- #### Launch The Whole Package without EKF
-- URDF
-- Robot State Publisher
-- RF20
-- Lidar Driver
-- Slam
-- Rviz2
-
-```bash
-ros2 launch autonomous_litter_bot_package mapping.launch.py
-``` -->
-
-### Launch onyl IMU
-```bash
-ros2 launch autonomous_litter_bot_package imu_system.launch.py
-```
-
 #### Launch The Whole Package with EKF
 - URDF
 - Robot State Publisher
@@ -320,29 +298,51 @@ source install/setup.bash
 sudo apt install liblcm-dev
 
 ## Build Map 
-```bash
-ros2 launch autonomous_litter_bot_package mapping_w_ekf.launch.py
-```
+
 
 ```bash
 ros2 launch autonomous_litter_bot_package slam.launch.py
 ```
-### Once Map is done:
+
 ```bash
 ros2 run nav2_map_server map_saver_cli -f ~/my_office_map
 ```
-
 Bring Down the Slam Node 
+
+
+### Once Map is done:
+```bash
+pkill -9 -f ros
+pkill -9 -f controller_server
+```
+
+```bash
+source ~/capstone-group8/ros2_ws/install/setup.bash
+ros2 launch autonomous_litter_bot_package mapping_w_ekf.launch.py
+```
 
 ## Launch Nav2 with AMCL 
 ```bash
+source ~/capstone-group8/ros2_ws/install/setup.bash
 ros2 launch autonomous_litter_bot_package nav2_launch.launch.py
 ```
 
 ## Launch Unitree UDP Bridge 
 ```bash
-source ~/ros2_ws/install/setup.bash
-ros2 run unitree_legged_real ros2_udp highlevel --ros-args \
-  -p target_ip:=192.168.12.188 \
-  -r /cmd_vel:=/high_cmd
+source ~/capstone-group8/ros2_ws/install/setup.bash
+ros2 run unitree_legged_real ros2_udp highlevel 
 ```
+
+## Start Sending /high_cmd to Unitree Go1
+Run the /cmd_vel to /high_cmd convertor node 
+```bash
+source ~/capstone-group8/ros2_ws/install/setup.bash
+ros2 run autonomous_litter_bot_package twist_to_high_cmd 
+```
+
+<!-- Run teleop keyboard (not needed)
+```bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```  -->
+
+

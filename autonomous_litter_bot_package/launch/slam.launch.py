@@ -21,7 +21,7 @@ def generate_launch_description():
         }.items()
     )
     delayed_slam = TimerAction(
-        period=3.0,
+        period=2.0,
         actions=[slam_toolbox]
     )
 

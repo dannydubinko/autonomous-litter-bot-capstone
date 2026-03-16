@@ -22,7 +22,7 @@ bt_navigator:
 controller_server:
   ros__parameters:
     use_sim_time: False
-    controller_frequency: 20.0
+    controller_frequency: 5.0
     min_x_velocity_threshold: 0.001
     min_y_velocity_threshold: 0.001
     min_theta_velocity_threshold: 0.001
@@ -33,20 +33,20 @@ controller_server:
       plugin: "nav2_rotation_shim_controller::RotationShimController"
       primary_controller: "nav2_mppi_controller::MPPIController"
       angular_dist_threshold: 0.785 # Rotate in place if error > 45 deg
-      forward_sampling_distance: 0.5
+      forward_sampling_distance: 1.0
       rotate_to_heading_angular_vel: 0.8
       
       # MPPI Settings - Optimized for Pi 5 Performance
       time_steps: 45           
-      model_dt: 0.05
+      model_dt: 0.2
       batch_size: 800          # Scaled for Pi 5 CPU overhead
-      vx_max: 0.4              # Safe walking speed
+      vx_max: 1.5              # Safe walking speed
       vx_min: -0.2
-      vy_max: 0.2              # Strafe speed
-      wz_max: 0.7              # Rotation speed
+      vy_max: 1.5              # Strafe speed
+      wz_max: 2.0              # Rotation speed
       
       motion_model: "Omni"     # Go1 is holonomic
-      critics: ["ConstraintCritical", "GoalCritical", "PathAlignCritical", "ObstacleCritical"]
+      critics: ["ConstraintCritic", "GoalCritic", "PathAlignCritic", "ObstaclesCritic"]
       
       ObstacleCritical:
         consider_footprint: True
@@ -58,7 +58,7 @@ planner_server:
     use_sim_time: False
     planner_plugins: ["GridBased"]
     GridBased:
-      plugin: "nav2_navfn_planner/NavfnPlanner"
+      plugin: "nav2_navfn_planner::NavfnPlanner"
       tolerance: 0.5
       use_astar: True
 
@@ -99,8 +99,8 @@ behavior_server:
     robot_base_frame: base_footprint
     behaviors: ["spin", "backup", "wait"]
     spin:
-      plugin: "nav2_behaviors/Spin"
+      plugin: "nav2_behaviors::Spin"
     backup:
-      plugin: "nav2_behaviors/BackUp"
+      plugin: "nav2_behaviors::BackUp"
     wait:
-      plugin: "nav2_behaviors/Wait"
+      plugin: "nav2_behaviors::Wait"

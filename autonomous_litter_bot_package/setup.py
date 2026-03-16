@@ -28,6 +28,8 @@ setup(
         # Install launch files
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*')),
+        (os.path.join('share', package_name, 'maps'), glob('maps/*')),
+
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -46,7 +48,8 @@ setup(
             'trash_detection_node = autonomous_litter_bot_package.trash_detection_node:main',
             'proto_sender_node = autonomous_litter_bot_package.proto_sender_node:main',
             'orange_detection_node = autonomous_litter_bot_package.orange_detection_node:main',
-            'lidar_filter_node = autonomous_litter_bot_package.lidar_filter:main'
+            'lidar_filter_node = autonomous_litter_bot_package.lidar_filter:main',
+            'twist_to_high_cmd = autonomous_litter_bot_package.twist_to_high_cmd:main'
         ],
     },
 )
