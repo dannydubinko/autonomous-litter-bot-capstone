@@ -35,13 +35,16 @@ def generate_launch_description():
             parameters=[nav2_params_path]
         ),
 
-        # --- 3. Planner & Controller ---
+        # --- 3. Planner & Controller (The Core Nav Stack) ---
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(nav2_launch_dir, 'navigation_launch.py')),
             launch_arguments={
                 'params_file': nav2_params_path,
                 'use_sim_time': 'False',
-                'use_lifecycle_mgr': 'False' # <--- THE FIX: Kills the duplicate manager!
+                'use_lifecycle_mgr': 'False',         # Disable duplicate manager
+                'use_collision_monitor': 'False',     # Disable unneeded safety node
+                'use_smoother': 'False',              # Disable path smoothing
+                'use_waypoint_follower': 'False'      # Disable multi-waypoint logic
             }.items()
         ),
 
@@ -54,8 +57,16 @@ def generate_launch_description():
             parameters=[{
                 'use_sim_time': False,
                 'autostart': True,
-                # THE FIX: Removed missing/optional nodes so it doesn't hang
-                'node_names': ['map_server', 'amcl', 'controller_server', 'smoother_server', 'planner_server', 'behavior_server', 'bt_navigator', 'waypoint_follower', 'velocity_smoother'],
+                # Explicitly only managing the nodes we actually want to run
+                'node_names': [
+                    'map_server', 
+                    'amcl', 
+                    'planner_server', 
+                    'controller_server', 
+                    'behavior_server', 
+                    'bt_navigator',
+                    'velocity_smoother' 
+                ],
                 'bond_timeout': 15.0,
                 'attempt_respawn_reconnection': True,
                 'bond_respawn_max_duration': 20.0

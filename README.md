@@ -326,6 +326,10 @@ ros2 launch autonomous_litter_bot_package mapping_w_ekf.launch.py
 source ~/capstone-group8/ros2_ws/install/setup.bash
 ros2 launch autonomous_litter_bot_package nav2_launch.launch.py
 ```
+```bash
+source ~/capstone-group8/ros2_ws/install/setup.bash
+ros2 launch autonomous_litter_bot_package nav2_simple.launch.py
+```
 
 ## Launch Unitree UDP Bridge 
 ```bash
@@ -344,5 +348,15 @@ ros2 run autonomous_litter_bot_package twist_to_high_cmd
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```  -->
+
+```bash
+ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=/home/daniel/ros2_ws/install/autonomous_litter_bot_package/share/autonomous_litter_bot_package/maps/my_office_map.yaml -p use_sim_time:=false
+
+ros2 lifecycle set /map_server configure
+ros2 lifecycle set /map_server activate
+
+ros2 run rviz2 rviz2
+
+```
 
 
