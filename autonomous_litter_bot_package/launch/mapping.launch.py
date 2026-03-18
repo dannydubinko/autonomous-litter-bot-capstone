@@ -4,9 +4,9 @@ from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
-from launch.actions import TimerAction
 from launch.actions import GroupAction
 from launch_ros.actions import SetRemap
+from launch.actions import TimerAction
 
 def generate_launch_description():
     pkg_name = 'autonomous_litter_bot_package'
@@ -92,19 +92,19 @@ def generate_launch_description():
         output='screen',
     ) 
 
-    # slam_toolbox = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(
-    #         os.path.join(get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')
-    #     ),
-    #     launch_arguments={
-    #         'params_file': os.path.join(get_package_share_directory(pkg_name), 'config', 'slam_params.yaml'),
-    #         'use_sim_time': 'false'
-    #     }.items()
-    # )
-    # delayed_slam = TimerAction(
-    #     period=3.0,
-    #     actions=[slam_toolbox]
-    # )
+    slam_toolbox = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')
+        ),
+        launch_arguments={
+            'params_file': os.path.join(get_package_share_directory(pkg_name), 'config', 'slam_params.yaml'),
+            'use_sim_time': 'false'
+        }.items()
+    )
+    delayed_slam = TimerAction(
+        period=3.0,
+        actions=[slam_toolbox]
+    )
 
     imu_6050 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -127,20 +127,15 @@ def generate_launch_description():
             ]
         )
 
-    rviz_node = Node (
-            package='rviz2',
-            executable='rviz2',
-            name="rviz2",
-            output='screen',
-        )
 
     return LaunchDescription([
         rsp_node,       
         rf2o_node,      
         lidar_remap,
-        rviz_node,
         ekf_node,
         imu_6050,
         imu_madwick,
-        lidar_filter
+        lidar_filter,
+        delayed_slam
     ])
+
