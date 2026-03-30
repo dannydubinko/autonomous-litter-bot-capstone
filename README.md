@@ -279,19 +279,28 @@ ros2 launch nav2_bringup navigation_launch.py use_sim_time:=false
 Save Map
 
 ```bash
-ros2 run nav2_map_server map_saver_cli -f ~/test_map
+ros2 run nav2_map_server map_saver_cli -f ~/capstone-group8/ros2_ws/src/autonomous_litter_bot_package/maps/mitchell_map
 ```
-
 Use Saved Map
 
 ```bash
-ros2 launch nav2_bringup bringup_launch.py map:=~/test_map.yaml use_sim_time:=false
+ros2 launch nav2_bringup bringup_launch.py map:=~/mitchell_map.yaml use_sim_time:=false
 ```
 
 # Final Instructions
+## Launch Files
+- go1 (lidar, imu, ekf, robot_state_publisher)
+- localization (amcl, map_server)
+- navigation (nav2 bringup)
+- utilities (high_cmd_commands, twist_to_cmd, nav2_waypoint_sender, sit_stand)
+
+- mapping (only for generating map)
+
+
+
 ```bash
 rosdep install -i --from-path src --rosdistro jazzy -y
-colcon build --symlink-install --packages-select autonomous_litter_bot_package rf2o_laser_odometry ros2_mpu6050 ros2_unitree_legged_msgs sllidar_ros2 unitree_ros2_to_real
+colcon build --symlink-install
 source install/setup.bash
 ```
 
@@ -302,11 +311,15 @@ sudo apt install liblcm-dev
 
 ```bash
 ros2 launch autonomous_litter_bot_package slam.launch.py
-```
+```S
 
 ```bash
 ros2 run nav2_map_server map_saver_cli -f ~/my_office_map
 ```
+
+
+
+
 Bring Down the Slam Node 
 
 

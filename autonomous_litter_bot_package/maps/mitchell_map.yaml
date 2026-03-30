@@ -1,4 +1,4 @@
-image: mitchell_map.pgm
+image: /home/pi5/capstone-group8/ros2_ws/src/autonomous_litter_bot_package/maps/mitchell_map.pgm
 mode: trinary
 resolution: 0.050
 origin: [-13.002, -17.251, 0]

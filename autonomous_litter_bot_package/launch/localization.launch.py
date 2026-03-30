@@ -59,7 +59,7 @@ def generate_launch_description():
     )
 
     declare_map_yaml_cmd = DeclareLaunchArgument(
-        'map', default_value=os.path.join(bringup_dir, 'maps', "my_office_map.yaml"), description='my map'
+        'map', default_value=os.path.join(bringup_dir, 'maps', "mitchell_map.yaml"), description='my map'
     )
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
