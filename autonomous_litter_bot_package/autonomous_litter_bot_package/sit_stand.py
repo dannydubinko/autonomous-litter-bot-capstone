@@ -25,7 +25,7 @@ class Pi5Go1Commander(Node):
         super().__init__('pi5_go1_commander')
 
         # State Machine & Goal Tracking
-        self.state = 'WAITING_FOR_PICKUP' # States: NAVIGATING, EXECUTING_SIT, WAITING_FOR_PICKUP, EXECUTING_STAND
+        self.state = 'NAVIGATION' # States: NAVIGATING, EXECUTING_SIT, WAITING_FOR_PICKUP, EXECUTING_STAND
         self.last_completed_goal_id = None
 
         # ROS 2 Publisher for the Go1's body
@@ -48,7 +48,7 @@ class Pi5Go1Commander(Node):
         self.listener_thread = threading.Thread(target=self.udp_listen_loop, daemon=True)
         self.listener_thread.start()
 
-        self.get_logger().info('Pi 5 Go1 Commander Ready. State: WAITING_FOR_PICKUP')
+        self.get_logger().info('Pi 5 Go1 Commander Ready. State: NAVIGATION')
 
     def nav_status_callback(self, msg: GoalStatusArray):
         # Ignore navigation updates unless we are actively navigating
