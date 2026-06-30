@@ -15,11 +15,10 @@ An autonomous, vision-guided litter-collection system built on the **Unitree Go1
 Click the link below to watch the system in action, showcasing quadruped locomotion, real-time SLAM mapping, object detection, and autonomous navigation:
 
 <p align="center">
-  <a href="https://youtu.be/qeCp4pqJDWM">
-    <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg" alt="Watch the Robot Demonstration" width="600">
+  <a href="https://youtu.be/dQw4w9WgXcQ">
+    <img src="https://i3.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Watch the Robot Demonstration" width="600">
   </a>
 </p>
-
 ---
 
 ## System Architecture & Flow
