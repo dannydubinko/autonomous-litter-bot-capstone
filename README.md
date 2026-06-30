@@ -7,6 +7,8 @@ An autonomous, vision-guided litter-collection system built on the **Unitree Go1
 [![Platform](https://img.shields.io/badge/Platform-Unitree%20Go1-orange)](https://www.unitree.com/products/go1/)
 ---
 
+![poster](poster.jpg)
+
 ## 📺 Project Demonstration
 
 Click the link below to watch the system in action, showcasing quadruped locomotion, real-time SLAM mapping, object detection, and autonomous navigation:
