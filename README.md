@@ -1,5 +1,5 @@
 # Autonomous Litter-Collecting Robot (Capstone Project)
-Go1 Litter(Garabge) Collecting Autononomus Robot
+Unitree Go1 Litter Collecting Autononomus Robot
 
 An autonomous, vision-guided litter-collection system built on the **Unitree Go1** quadruped robotics platform. This project integrates simultaneous localization and mapping (SLAM), advanced sensor fusion, object detection, and mobile autonomy to identify, navigate toward, and collect surface litter in real-time.
 
