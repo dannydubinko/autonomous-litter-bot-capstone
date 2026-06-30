@@ -5,25 +5,24 @@ An autonomous, vision-guided litter-collection system built on the **Unitree Go1
 
 [![ROS2 Version](https://img.shields.io/badge/ROS2-Jazzy-blue)](https://docs.ros.org/en/jazzy/index.html)
 [![Platform](https://img.shields.io/badge/Platform-Unitree%20Go1-orange)](https://www.unitree.com/products/go1/)
+
 ---
 
 ![poster](poster.jpg)
 
-## 📺 Project Demonstration
+## Project Demonstration
 
 Click the link below to watch the system in action, showcasing quadruped locomotion, real-time SLAM mapping, object detection, and autonomous navigation:
 
-👉 **[Watch the Robot Demonstration & SLAM Mapping on YouTube](https://www.youtube.com)** *(Replace with your actual YouTube link)*
+**[Watch the Robot Demonstration & SLAM Mapping on YouTube]([https://www.youtube.com](https://youtu.be/qeCp4pqJDWM))
 
 ---
 
-## 📌 System Architecture & Flow
+## System Architecture & Flow
 
 Below is the high-level control and data flow of the autonomous system, illustrating how sensor data is fused to drive the perception, planning, and actuation loops.
 
-
 ![flow chart](flowchart.jpg)
-
 
 ## My Package is `autonomous_litter_bot_package`
 
