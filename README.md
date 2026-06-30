@@ -5,8 +5,6 @@ An autonomous, vision-guided litter-collection system built on the **Unitree Go1
 
 [![ROS2 Version](https://img.shields.io/badge/ROS2-Jazzy-blue)](https://docs.ros.org/en/jazzy/index.html)
 [![Platform](https://img.shields.io/badge/Platform-Unitree%20Go1-orange)](https://www.unitree.com/products/go1/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
 ---
 
 ## 📺 Project Demonstration
