@@ -20,7 +20,7 @@ Click the link below to watch the system in action, showcasing quadruped locomot
 Below is the high-level control and data flow of the autonomous system, illustrating how sensor data is fused to drive the perception, planning, and actuation loops.
 
 
-![flow chart](path/to/image.png)
+![flow chart](flowchart.jpg)
 
 
 ## My Package is `autonomous_litter_bot_package`
